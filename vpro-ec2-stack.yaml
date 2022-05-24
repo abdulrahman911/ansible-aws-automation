@@ -24,4 +24,4 @@
         content: "{{vprokey_out.key.private_key}}"
         dest: "./vpro-key.pem"
         mode: 0600
-      when: key_out.changed == true
+      when: vprokey_out.changed == true
