@@ -21,7 +21,7 @@
         mode: 0600
       when: key_out.changed == true
     
-    - name: Create Sec Grp for bastion host
+    - name: Create Sec Grp for bastion host 
       ec2_group:
         name: Bastion-EC2-SG
         description: sg with rule descriptions
@@ -54,4 +54,11 @@
         group_id: "{{BastionSG_out.group_id}}" 
         vpc_subnet_id: "{{pubsub1id}}"
       register: BastionHost_out
+    
+    - name: Insert/Update "BastionSGid" in vars/output_vars
+      blockinfile:
+        path: vars/output_vars
+        backup: yes
+        block: |
+          BastionSGid: {{BastionSG_out.group_id}} 
 
