@@ -56,6 +56,18 @@
               to_port: 22
               group_id: "{{BastionSGid}}"
         register: vproStackSG_out
+      
+      - name: Create a security group for Vprofile stack
+        ec2_group:
+          name: vproStack_sg
+          description: Allow port 22 from Bastion host
+          region: "{{region}}"
+          vpc_id: "{{vpcid}}"
+          purge_rules: no # if you not added this line, all previous rule removed by playbook next run
+          rules: 
+            - proto: all
+              group_id: "{{vproStackSG_out.group_id}}"
+
 
 
           
