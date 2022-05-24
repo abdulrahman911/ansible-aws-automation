@@ -7,6 +7,9 @@
 
     - name: Import VPC ID from out file
       include_vars: vars/vpc_variables
+    
+    - name: Import Output variable of VPC
+      include_vars: vars/output_vars
 
     - name: Create vprofile ec2 key
       ec2_key:
