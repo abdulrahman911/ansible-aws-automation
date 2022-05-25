@@ -77,14 +77,14 @@
         image: "{{nginx_ami}}"
         wait: yes
         wait_timeout: 300
-        instance_tags: 
+        instance_tags: # keep instance tags same in count tag to avoid creating new vm
           Name: "web01"
           Project: Vprofile
           Owner: DevOps Team
         exact_count: 1
         count_tag:
           Name: "web01"
-          Project: Vprofiles
+          Project: Vprofile
           Owner: DevOps Team 
         group_id: "{{vproStackSG_out.group_id}}" 
         vpc_subnet_id: "{{privsub1id}}"
@@ -105,7 +105,7 @@
         exact_count: 1
         count_tag:
           Name: "app01"
-          Project: Vprofiles
+          Project: Vprofile
           Owner: DevOps Team 
         group_id: "{{vproStackSG_out.group_id}}" 
         vpc_subnet_id: "{{privsub1id}}"
@@ -126,7 +126,7 @@
         exact_count: 1
         count_tag:
           Name: "mc01"
-          Project: Vprofiles
+          Project: Vprofile
           Owner: DevOps Team 
         group_id: "{{vproStackSG_out.group_id}}" 
         vpc_subnet_id: "{{privsub1id}}"
@@ -147,7 +147,7 @@
         exact_count: 1
         count_tag:
           Name: "rmq01"
-          Project: Vprofiles
+          Project: Vprofile
           Owner: DevOps Team 
         group_id: "{{vproStackSG_out.group_id}}" 
         vpc_subnet_id: "{{privsub1id}}"
@@ -168,7 +168,7 @@
         exact_count: 1
         count_tag:
           Name: "db01"
-          Project: Vprofiles
+          Project: Vprofile
           Owner: DevOps Team 
         group_id: "{{vproStackSG_out.group_id}}" 
         vpc_subnet_id: "{{privsub1id}}"
